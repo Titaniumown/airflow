@@ -19,7 +19,7 @@ with DAG(
         task_id = 'bash_t2',
         env={
             'START_DATE':'{{data_interval_start | ds}}',
-            'END_DATe':'{{data_interval_end}}'
+            'END_DATE':'{{data_interval_end}}'
         },
         bash_command='echo $START_DATE && echo $END_DATE'
     )
