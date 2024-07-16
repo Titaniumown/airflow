@@ -1,7 +1,7 @@
 from airflow.models.dag import DAG
 import datetime
 import pendulum
-from airflow.decorators import dag, task, task_group
+from airflow.decorators import task, task_group
 from airflow.operators.python import PythonOperator
 from airflow.utils.task_group import TaskGroup
 
@@ -30,7 +30,7 @@ with DAG(
             op_kwargs={'msg': '첫 번째 TaskGroup내 두 번쨰 task'}
         )
 
-        inner_func1 >> inner_function2
+        inner_func1() >> inner_function2
 
     with TaskGroup(group_id='second_grpu', tooltip='두 번째 그룹입니다') as group_2:
         ''' 여기에 적은 docstring은 표시되지 않습니다.'''
