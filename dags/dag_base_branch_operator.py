@@ -15,8 +15,7 @@ with DAG(
     class CustomBranchOperator(BaseBranchOperator):
         def choose_branch(self, context):
             import random
-            print(context)
-
+            
             item_list = ['A', 'B', 'C']
             selected_item = random.choice(item_list)
             if selected_item == 'A':
