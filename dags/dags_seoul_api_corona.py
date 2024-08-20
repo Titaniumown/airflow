@@ -5,7 +5,7 @@ import pendulum
 with DAG(
     dag_id='dags_seoul_api_corona',
     schedule='0 7 * * *',
-    start_date=pendulum.datetime(2024,6,1, tz='Asia/Souel'),
+    start_date=pendulum.datetime(2024,6,1, tz='Asia/Seoul'),
     catchup=False
 ) as dag:
     
@@ -13,7 +13,7 @@ with DAG(
     tb_corona19_count_status = SeoulApiToCsvOperator(
         task_id='tb_corona19_count_status',
         dataset_nm='TbCorona19CountStatus',
-        path='/home/docker/airflow/TbCorona19CountStatus/{{data_interval_end.in_timezone("Asia/Souel") | ds_nodash}}',
+        path='/home/docker/airflow/TbCorona19CountStatus/{{data_interval_end.in_timezone("Asia/Seoul") | ds_nodash}}',
         file_name='TbCorona19CountStatus.csv'
     )
 
@@ -21,7 +21,7 @@ with DAG(
     tv_corona19_vaccine_stat_new = SeoulApiToCsvOperator(
         task_id='tb_corona19_vaccine_stat_new',
         dataset_nm='tvCorona19VaccinestatNew',
-        path='/home/docker/airflow/tvCorona19VaccinestatNew/{{data_interval_end.in_timezone("Asia/Souel") | ds_nodash}}',
+        path='/home/docker/airflow/tvCorona19VaccinestatNew/{{data_interval_end.in_timezone("Asia/Seoul") | ds_nodash}}',
         file_name='tvCorona19VaccinestatNew.csv'
     )
 
