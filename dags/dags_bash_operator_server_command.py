@@ -8,6 +8,7 @@ with DAG(
     schedule=None,
     start_date=pendulum.datetime(2023, 3, 1, tz="Asia/Seoul"),
     catchup=False,
+    tags=["test", "server_command"],
 ) as dag:
     # [START howto_operator_bash]
     bash_t1 = BashOperator(
