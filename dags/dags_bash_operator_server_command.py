@@ -21,7 +21,7 @@ with DAG(
     # [START howto_operator_bash]
     bash_t1 = BashOperator(
         task_id="bash_t1",
-        bash_command="pwd && touch `pwd`/test.txt ",
+        bash_command=bash_script,
     )
 
     # bash_t2 = BashOperator(
