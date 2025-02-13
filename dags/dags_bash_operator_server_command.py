@@ -13,11 +13,7 @@ with DAG(
     # [START howto_operator_bash]
     bash_t1 = BashOperator(
         task_id="bash_t1",
-        bash_command="""
-        hostnmae
-        ifconfig
-        df -h
-        """,
+        bash_command="df -h ",
     )
 
     # bash_t2 = BashOperator(
