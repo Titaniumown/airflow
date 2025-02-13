@@ -13,10 +13,7 @@ with DAG(
     # [START howto_operator_bash]
     bash_t1 = BashOperator(
         task_id="bash_t1",
-        bash_command="""
-        whoami
-        pwd
-        """,
+        bash_command="whoami && df -h ",
     )
 
     # bash_t2 = BashOperator(
