@@ -3,6 +3,14 @@ import datetime
 import pendulum
 from airflow.operators.bash import BashOperator
 
+
+bash_script="""
+pwd
+touch `pwd`/test.txt
+echo hello world >> test.txt
+cat test.txt
+"""
+
 with DAG(
     dag_id="dags_bash_operator_server_command",
     schedule=None,
